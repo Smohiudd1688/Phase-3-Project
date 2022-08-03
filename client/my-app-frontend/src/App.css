@@ -1,9 +1,35 @@
+.App {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 header {
     display: flex;
     justify-content: center;
     color: rgb(20, 37, 53);
     font-size: 1.5rem;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-image: linear-gradient(rgb(211, 37, 37), white);
 }
 
+#showButton {
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    background-color: #e5cac8;
+    border-color: #000000;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 2%;
+    cursor: grab;
+}
+
+form {
+    text-align: center;
+    background-color: rgb(215, 96, 96);
+    padding: 1rem;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+}
