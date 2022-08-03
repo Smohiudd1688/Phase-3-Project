@@ -33,3 +33,12 @@ form {
     margin-right: 30%;
     width: 40%;
 }
+
+.show {
+    text-align: center;
+    background-color: rgb(234, 149, 149);
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 5%;
+    padding: 1rem;
+}
