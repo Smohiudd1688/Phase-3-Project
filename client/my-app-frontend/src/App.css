@@ -10,16 +10,15 @@ header {
     background-image: linear-gradient(rgb(211, 37, 37), white);
 }
 
-#showButton {
+button {
     margin-left: 40%;
     margin-right: 40%;
     width: 20%;
     background-color: #e5cac8;
     border-color: #000000;
     color: black;
-    padding: 15px 32px;
+    padding: 10px 20px;
     text-align: center;
-    font-weight: bold;
     font-size: 16px;
     margin-bottom: 2%;
     cursor: grab;
@@ -41,4 +40,8 @@ form {
     margin-left: 10%;
     border-radius: 5%;
     padding: 1rem;
+}
+
+textarea {
+    max-width: 85%;
 }
