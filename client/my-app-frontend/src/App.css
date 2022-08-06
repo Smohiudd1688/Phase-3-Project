@@ -10,7 +10,7 @@ header {
     background-image: linear-gradient(rgb(211, 37, 37), white);
 }
 
-button {
+.addButton {
     margin-left: 40%;
     margin-right: 40%;
     width: 20%;
@@ -44,4 +44,12 @@ form {
 
 textarea {
     max-width: 85%;
+}
+
+.reviewButton {
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #e5cac8;
+    border-color: #000000;
+    cursor: grab
 }

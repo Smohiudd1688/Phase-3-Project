@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <TvShow /><br></br><br></br>
-      <button id="showButton" onClick={() => setIsShowForm(!isShowForm)}>
+      <button className='addButton' onClick={() => setIsShowForm(!isShowForm)}>
         {isShowForm ? "Don't Add Show" : "Add Show"}
       </button>
       {isShowForm ? <ShowForm /> : null}
