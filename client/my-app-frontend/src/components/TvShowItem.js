@@ -24,7 +24,7 @@ function TvShowItem({id, title, image, numOfSeasons}) {
     });
 
     function handleDelete(reviewId) {
-        fetch(`http://localhost:9292/shows/${id}/reviews/${reviewId}`, {
+        fetch(`http://localhost:9292/reviews/${reviewId}`, {
             method: "DELETE"
         })
         .then(response => response.json())
