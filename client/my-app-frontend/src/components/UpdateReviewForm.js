@@ -15,26 +15,30 @@ function UpdateReviewForm({id, onUpdateReviewSubmit, setIsUpdateClick}) {
     function handleReviewSubmit(event) {
         event.preventDefault();
 
-        const updatedReview = {
-            rating: parseInt(rating),
-            review: review
+        if (isNaN(parseInt(rating)) || parseInt(rating) < 0 || parseInt(rating) > 5) {
+            alert("Please enter a number between 1 and 5 for rating");
+        } else {
+            const updatedReview = {
+                rating: parseInt(rating),
+                review: review
+            }
+    
+            console.log(updatedReview);
+    
+            fetch(`http://localhost:9292/reviews/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(updatedReview)
+            })
+            .then(response => response.json())
+            .then(data => onUpdateReviewSubmit(data));
+    
+            setRating("");
+            setReview("");
+            setIsUpdateClick(false);
         }
-
-        console.log(updatedReview);
-
-        fetch(`http://localhost:9292/reviews/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(updatedReview)
-        })
-        .then(response => response.json())
-        .then(data => onUpdateReviewSubmit(data));
-
-        setRating("");
-        setReview("");
-        setIsUpdateClick(false);
     }
 
     return (
