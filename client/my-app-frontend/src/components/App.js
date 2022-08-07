@@ -1,20 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../App.css';
 import Header from './Header';
-import ShowForm from './ShowForm';
 import TvShow from './TvShow';
 
 function App() {
-  const [isShowForm, setIsShowForm] = useState(false);
+  const [tvShows, setTvShows] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/shows")
+    .then(response => response.json())
+    .then(data => setTvShows(data));
+  }, []);
 
   return (
     <div className="App">
       <Header></Header>
-      <TvShow /><br></br><br></br>
-      <button className='addButton' onClick={() => setIsShowForm(!isShowForm)}>
-        {isShowForm ? "Don't Add Show" : "Add Show"}
-      </button>
-      {isShowForm ? <ShowForm /> : null}
+      <TvShow tvShows={tvShows} />
     </div>
   );
 }
