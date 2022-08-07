@@ -17,7 +17,7 @@ function TvShow({tvShows, setTvShows}) {
 
     function handleShowFormSubmit(newShow) {
         setIsShowForm(false);
-        setTvShows(...tvShows, newShow);
+        setTvShows([...tvShows, newShow]);
     }
 
     return (

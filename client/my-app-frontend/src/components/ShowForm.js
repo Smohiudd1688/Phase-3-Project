@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function ShowForm({onNewShowSubmit}) {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
-    const [numOfSeasons, setNumOfSeasons] = useState();
+    const [numOfSeasons, setNumOfSeasons] = useState("");
 
     function handleTitleChange(event) {
         setTitle(event.target.value);
@@ -23,7 +23,7 @@ function ShowForm({onNewShowSubmit}) {
         const newShow = {
             title: title,
             image: image,
-            num_of_seasons: numOfSeasons
+            num_of_seasons: parseInt(numOfSeasons)
         }
 
         fetch("http://localhost:9292/shows", {
