@@ -21,6 +21,10 @@ function TvShowItem({id, title, image, numOfSeasons}) {
                 />
     });
 
+    function handleReviewFormSubmit(newReview) {
+
+    }
+
     return (
         <div className="show">
             <h3>{title}</h3>
@@ -30,7 +34,7 @@ function TvShowItem({id, title, image, numOfSeasons}) {
             <button className="addButton" onClick={() => setIsReviewFormOn(!isReviewFormOn)}>
                 {isReviewFormOn? "Don't Add Review" : "Add Review"}
             </button>
-            {isReviewFormOn ? <ReviewForm id={id} /> : null}
+            {isReviewFormOn ? <ReviewForm id={id} onReviewFormSubmit={handleReviewFormSubmit} /> : null}
         </div>
     );
 }

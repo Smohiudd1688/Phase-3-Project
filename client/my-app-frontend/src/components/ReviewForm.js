@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function ReviewForm() {
+function ReviewForm({id, onReviewFormSubmit}) {
     const [rating, setRating] = useState("");
     const [review, setReview] = useState("");
     const [name, setName] = useState("");
@@ -26,7 +26,7 @@ function ReviewForm() {
             name: name
         }
 
-        fetch(`http://localhost:9292/shows/`, {
+        fetch(`http://localhost:9292/shows/${id}/reviews`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
