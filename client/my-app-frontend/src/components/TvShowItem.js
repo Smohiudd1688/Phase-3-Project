@@ -18,11 +18,22 @@ function TvShowItem({id, title, image, numOfSeasons}) {
                     rating={reviewItem.rating}
                     review={reviewItem.review}
                     name={reviewItem.name}
+                    id={reviewItem.id}
+                    onHandleDelete={handleDelete}
                 />
     });
 
-    function handleReviewFormSubmit(newReview) {
+    function handleDelete(id) {
+        const updatedReviews = reviews.filter(reviewItem => {
+            return reviewItem.id !== id;
+        });
 
+        setReviews(updatedReviews);
+    }
+
+    function handleReviewFormSubmit(newReview) {
+        setIsReviewFormOn(false);
+        setReviews([...reviews, newReview]);
     }
 
     return (
