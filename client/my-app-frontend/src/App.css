@@ -54,3 +54,7 @@ textarea {
     border-color: #000000;
     cursor: grab
 }
+
+#updateForm {
+    margin-top: 3%;
+}

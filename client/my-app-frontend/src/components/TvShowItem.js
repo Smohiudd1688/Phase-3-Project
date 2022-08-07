@@ -20,12 +20,24 @@ function TvShowItem({id, title, image, numOfSeasons}) {
                     name={reviewItem.name}
                     id={reviewItem.id}
                     onHandleDelete={handleDelete}
+                    onUpdateReviewSubmit={handleUpdate}
                 />
     });
 
     function handleDelete(deletedReview) {
         const updatedReviews = reviews.filter(reviewItem => {
             return reviewItem.id !== deletedReview.id;
+        });
+
+        setReviews(updatedReviews);
+    }
+
+    function handleUpdate(updatedReview) {
+        const updatedReviews = reviews.map(reviewItem => {
+            if (reviewItem.id === updatedReview.id) {
+                return updatedReview;
+            }
+            return reviewItem;
         });
 
         setReviews(updatedReviews);
