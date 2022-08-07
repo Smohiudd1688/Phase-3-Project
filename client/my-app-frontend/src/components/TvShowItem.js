@@ -30,7 +30,7 @@ function TvShowItem({id, title, image, numOfSeasons}) {
             <button className="addButton" onClick={() => setIsReviewFormOn(!isReviewFormOn)}>
                 {isReviewFormOn? "Don't Add Review" : "Add Review"}
             </button>
-            {isReviewFormOn ? <ReviewForm /> : null}
+            {isReviewFormOn ? <ReviewForm id={id} /> : null}
         </div>
     );
 }

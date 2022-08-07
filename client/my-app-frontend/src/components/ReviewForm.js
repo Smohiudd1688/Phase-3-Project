@@ -19,6 +19,26 @@ function ReviewForm() {
 
     function handleReviewSubmit(event) {
         event.preventDefault();
+
+        const newReview = {
+            rating: parseInt(rating),
+            review: review,
+            name: name
+        }
+
+        fetch(`http://localhost:9292/shows/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newReview)
+        })
+        .then(response => response.json())
+        .then(data => onReviewFormSubmit(data));
+
+        setRating("");
+        setReview("");
+        setName("");
     }
 
     return (
