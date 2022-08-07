@@ -23,7 +23,13 @@ function TvShowItem({id, title, image, numOfSeasons}) {
                 />
     });
 
-    function handleDelete(id) {
+    function handleDelete(reviewId) {
+        fetch(`http://localhost:9292/shows/${id}/reviews/${reviewId}`, {
+            method: "DELETE"
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+
         const updatedReviews = reviews.filter(reviewItem => {
             return reviewItem.id !== id;
         });
