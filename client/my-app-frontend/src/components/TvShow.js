@@ -1,10 +1,8 @@
 import React, {useState} from "react";
-import TvReview from "./TvReview";
-import ReviewForm from "./ReviewForm";
 import TvShowItem from "./TvShowItem";
 import ShowForm from './ShowForm';
 
-function TvShow({tvShows}) {
+function TvShow({tvShows, setTvShows}) {
     const [isShowForm, setIsShowForm] = useState(false);
 
     const renderTvShows = tvShows.map(show => {
@@ -17,14 +15,19 @@ function TvShow({tvShows}) {
                 />
     });
 
+    function handleShowFormSubmit(newShow) {
+        setIsShowForm(false);
+        setTvShows(...tvShows, newShow);
+    }
+
     return (
         <div>
             {renderTvShows}
-            <br></br><br></br>
             <button className='addButton' onClick={() => setIsShowForm(!isShowForm)}>
                 {isShowForm ? "Don't Add Show" : "Add Show"}
             </button>
-            {isShowForm ? <ShowForm /> : null}
+            {isShowForm ? <ShowForm onNewShowSubmit={handleShowFormSubmit} /> : null}
+            <br></br><br></br><br></br><br></br>
         </div>
     );
 }
