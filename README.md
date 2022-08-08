@@ -4,33 +4,31 @@ This application is a one stop shop to get to know all about Avatar the Last Air
 
 ## Getting Started
 
-### Installation
+### FrontEnd Installation
 
-1. Clone the repository and cd into the folder.
-2. Make sure Google Chrome is your default browser, it may not work correctly otherwise.
-3. In terminal open the html file using the code below.
+1. Clone the repository and cd into the folder labeled client.
+2. Then cd in the folder labeled my-app-frontend.
+3. Make sure Google Chrome is your default browser, it may not work correctly otherwise.
+4. In terminal open the html file in the browser using the code below.
     ```bash
     npm start
     ```
-4. You are ready to start using the application!
 
-### Configuration
+### BackEnd Installation
 
-In order for the application to run correctly you will need to run a JSON server to replicate a full REST API. To do this you will need to:
-1. Install the JSON server in terminal (either globally or locally) by running this code:
+1. To install the server, starting at the root of the repository cd into the folder labeled phase-3-sinatra-react-project.
+2. Run the following line in terminal to install the necessary gems.
     ```bash
-    npm install -g json-server
+    bundle install
     ```
-2. Then cd into directory where `db.json file` is stored, if not already
-3. Lastly, run the following code:
+3. Once the gems are installed, run the following code to start up ther server.
     ```bash
-    json-server --watch db.json
+    bundle exec rake server
     ```
+4. You are now ready to use the application!
 
 ## Usage
-To use the application you may browse, as you would any website. You can travel to a page discussing the different characters, by either clicking the character tab on the navigation bar or by clicking the image of the characters on the home page. When on the character page, you can browse the characters or add a missing character by clicking the appropiate button and filling out/submitting the form that pops up. After doing so, you should see the new character added to the bottom of the page.
-
-You can travel to a page discussing the different nations, by either clicking the nations tab on the navigation bar or by clicking the map image of the nations on the home page. Once on the page the four different nations are displayed with a quick description, and you can click on it to go to a page dedicated to that particular nation. The page will display some details as well as the characters belonging to that nation.
+To use this application you can add a review to any existing tv shows. To do this click the add a review button and fill out/submit the form for the corresponding tv show. If you would like to add a show that is not already listed, you can scroll to the bottom of the page and click the add a show button. A form will pop up and you can fill out the information and the show will be added to the list. You can now add a review to that show. You can update or delete any reviews.
 
 ## Project Status
 This application is completed.
