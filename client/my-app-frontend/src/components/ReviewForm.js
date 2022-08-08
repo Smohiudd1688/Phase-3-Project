@@ -20,25 +20,29 @@ function ReviewForm({id, onReviewFormSubmit}) {
     function handleReviewSubmit(event) {
         event.preventDefault();
 
-        const newReview = {
-            rating: parseInt(rating),
-            review: review,
-            name: name
+        if (isNaN(parseInt(rating)) || parseInt(rating) < 0 || parseInt(rating) > 5) {
+            alert("Please enter a number between 1 and 5 for rating");
+        } else {
+            const newReview = {
+                rating: parseInt(rating),
+                review: review,
+                name: name
+            }
+    
+            fetch(`http://localhost:9292/shows/${id}/reviews`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newReview)
+            })
+            .then(response => response.json())
+            .then(data => onReviewFormSubmit(data));
+    
+            setRating("");
+            setReview("");
+            setName("");
         }
-
-        fetch(`http://localhost:9292/shows/${id}/reviews`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newReview)
-        })
-        .then(response => response.json())
-        .then(data => onReviewFormSubmit(data));
-
-        setRating("");
-        setReview("");
-        setName("");
     }
 
     return (
