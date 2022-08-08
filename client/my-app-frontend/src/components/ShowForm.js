@@ -20,26 +20,29 @@ function ShowForm({onNewShowSubmit}) {
     function handleShowSubmit(event) {
         event.preventDefault();
 
-        const newShow = {
-            title: title,
-            image: image,
-            num_of_seasons: parseInt(numOfSeasons)
+        if (isNaN(parseInt(numOfSeasons)) || parseInt(numOfSeasons) < 0) {
+            alert("Please enter a number between 1 and 5 for rating");
+        } else {
+            const newShow = {
+                title: title,
+                image: image,
+                num_of_seasons: parseInt(numOfSeasons)
+            }
+    
+            fetch("http://localhost:9292/shows", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newShow)
+            })
+            .then(response => response.json())
+            .then(data => onNewShowSubmit(data))
+            
+            setTitle("");
+            setImage("");
+            setNumOfSeasons("");
         }
-
-        fetch("http://localhost:9292/shows", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newShow)
-        })
-        .then(response => response.json())
-        .then(data => onNewShowSubmit(data))
-        
-        setTitle("");
-        setImage("");
-        setNumOfSeasons();
-
     }
 
     return(
